@@ -1,11 +1,11 @@
-import React, { useState } from "react"; 
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getProductById } from "../modules/api";
-import Skleton from "../Components/Skleton"; 
+import Skleton from "../Components/Skleton";
 import { SlBasket } from "react-icons/sl";
 import "../assets/sass/main.scss";
-import { MdFavoriteBorder } from "react-icons/md"; 
+import { MdFavoriteBorder } from "react-icons/md";
 
 interface Product {
   title: string;
@@ -18,7 +18,7 @@ interface Product {
 
 const ProductDetail: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
-  const [isFavorite, setIsFavorite] = useState(false); 
+  const [isFavorite, setIsFavorite] = useState(false);
   const {
     data: product,
     isLoading,
@@ -30,17 +30,15 @@ const ProductDetail: React.FC = () => {
     { enabled: !!productId }
   );
 
-
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
   };
-
 
   if (isLoading) {
     return (
       <div className="product-container">
         <div className="product-image">
-          <Skleton /> 
+          <Skleton />
         </div>
       </div>
     );
@@ -49,8 +47,8 @@ const ProductDetail: React.FC = () => {
   if (isError) return <div className="error">Error: {error.message}</div>;
   if (!product) return <div className="not-found">Product not found</div>;
 
-  const discountedPrice: number =
-    product.price - (product.price * (product.discount / 100));
+  const discountedPrice =
+    product.price - product.price * (product.discount / 100);
 
   return (
     <div className="product-container">
@@ -65,22 +63,22 @@ const ProductDetail: React.FC = () => {
         <h1>{product.title}</h1>
         <p className="category">Kategoriya: {product.category}</p>
         <h3>Description: {product.description}</h3>
-          <p className="price">Price:   {product.price}$</p>
+        <p className="price">Price: {discountedPrice}$</p>
 
         <div className="action-container">
-          <div className="Buy">
-            <p>Add to Basket</p>
-          <SlBasket className="nav_svg" />
-            </div>
-            <div
-          className={`favorite-icon ${isFavorite ? "active" : ""}`}
-          onClick={toggleFavorite}
-               >
-       <MdFavoriteBorder className="nav_svg" />
-        </div>
+          <button className="buy-button">
+            Add to Basket <SlBasket className="nav_svg" />
+          </button>
+          <div
+            className={`favorite-icon ${isFavorite ? "active" : ""}`}
+            onClick={toggleFavorite}
+            aria-label="Add to favorites"
+          >
+            <MdFavoriteBorder className="nav_svg" />
           </div>
-    </div>
+        </div>
       </div>
+    </div>
   );
 };
 

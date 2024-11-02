@@ -5,7 +5,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Skleton from "../Components/Skleton";
 
-
 interface Product {
   id: number;
   title: string;
@@ -84,7 +83,7 @@ const Products: React.FC = () => {
       </div>
 
       <div className="products">
-        {currentPageProducts.map((product:any) => (
+        {currentPageProducts.map((product: Product) => (
           <div
             className="product_card"
             key={product.id}

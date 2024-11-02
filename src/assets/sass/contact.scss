@@ -1,0 +1,73 @@
+.contact_cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 100px;
+    
+    a {
+      width: 280px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-decoration: none;
+      border-radius: 15px;
+      background-color: #fff; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+      transition: all 0.3s ease; 
+      overflow: hidden;
+      
+      &:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+  
+      .icon_box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        transition: transform 0.3s ease;
+      }
+  
+      h2 {
+
+        font-family: Poppins-Semibold;
+        color: white;
+        font-size: 20px;
+        margin-top: 12px;
+      }
+    }
+  
+
+    a:nth-child(1) {
+      background: linear-gradient(90deg,rgb(0, 174, 255) 0%,rgb(6, 64, 136) 78%); 
+      color: white; 
+  
+      .telegram_icon {
+        font-size: 40px;
+        color: white;
+      }
+  
+
+    }
+ 
+    a:nth-child(2) {
+      background: linear-gradient(135deg, #fcb045, #fd1d1d, #833ab4); 
+      color: white;
+  
+      .instagram_icon {
+        font-size: 40px;
+        color: white;
+      }
+  
+      &:hover {
+        background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045); 
+      }
+    }
+  }
+  

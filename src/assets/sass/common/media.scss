@@ -1,0 +1,188 @@
+
+@media (max-width: 850px) {
+  .products{
+    justify-content: center;
+  }
+}
+@media (max-width: 750px) {
+  .product_card {
+    width: 120px;
+    height: 10px;
+    justify-content: center;
+
+  }
+}
+@media (max-width: 470px) {
+  .products {
+    width: 250px;
+    height: 350px;
+  }
+  .product_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  }
+
+
+  @media (max-width: 600px) {
+  
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 10px; 
+    }
+  
+
+    .logo_img {
+      width:130px; 
+      height: auto;
+      margin: 0; 
+      padding: 0; 
+    }
+  
+    .nav-elements {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 250px;
+      height: 300px;
+      background: #2a3239;
+      box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+      padding: 20px 10px 0 10px; 
+      transition: right 0.3s ease;
+    }
+  
+    @media screen and (max-width: 530px) {
+      .navbar .nav-elements .nav-menu {
+          display: block;
+      }
+  }
+  .navbar .nav-elements .nav-menu {
+      display: block;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-direction: column;
+      cursor: pointer;
+  }
+  }
+
+@media (max-width: 660px) {
+  .paginate {
+    gap: 10px;
+    padding: 10px;
+
+  }
+
+  .paginate_btn, .paginate_link {
+      display: flex;
+      width: 50px ;
+  }
+
+
+}
+
+@media (max-width: 850px) {
+  .product-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .product-image {
+      width: 80%; 
+      height: auto;
+      margin-right: 0; 
+  }
+
+  .product-details {
+      align-items: center;
+      text-align: center;
+      margin-top: 15px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .product-container {
+      padding: 10px;
+  }
+
+  .product-image {
+      width: 100%; 
+      height: auto;
+  }
+
+  .product-details {
+      align-items: center;
+      text-align: center;
+  }
+}
+
+
+
+@media (max-width: 570px) {
+  .paginate {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    list-style: none;
+    margin-top: auto;
+    margin-bottom: 0;
+    bottom: 0;
+    width: auto;
+    padding: 10px 0;
+    left: 0;
+    gap: 8px;
+    font-size: 16px;
+    backdrop-filter: blur(15px);
+
+    &_btn {
+      font-size: 18px;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    &_link {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%; /* To'liq dumaloq shakl */
+      max-width: 30px;
+      border: 2px solid rgb(174, 98, 98);
+      background-color: rgba(255, 255, 255, 0.9); /* Yengil oq fon */
+        color: rgb(174, 98, 98);
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease; /* Silliq o‘tish */
+
+      &:hover {
+        background-color: rgb(174, 98, 98);
+        color: white;
+      }
+    }
+
+    &_active {
+      color: white;
+      background-color: rgb(174, 98, 98);
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}

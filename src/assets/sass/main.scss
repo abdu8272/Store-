@@ -216,19 +216,16 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     .action-container {
       display: flex;
       align-items: center;
-      gap: 1rem; /* Savat tugmasi va yurak ikonkasi orasidagi bo'shliq */
+      gap: 1rem; 
     }
 
-    .Buy {
+    .buy-button{
       display: flex;
       align-items: center;
-      background-color: #e74c3c;
+      color: #e74c3c;
       width: 150px;
-      color: white;
       padding: 10px;
-      border-radius: 0.50rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      border-radius: 10px;
       font-family: Inter-SemiBold;
 
       p {
@@ -239,11 +236,12 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       .nav_svg {
         margin-left: 0.5rem;
         font-size: 1.2rem;
+        &_active{
+          color: #c0392b;
+        }
       }
 
-      &:hover {
-        background-color: #c0392b;
-      }
+
     }
 
     .favorite-icon {
@@ -264,9 +262,9 @@ $box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     
       &.active {
         border-color: #e74c3c;
-        background-color: #fdecea; 
+   
     
-        .nav_svg {
+        .buy-button {
           color: #e74c3c; 
         }
       }

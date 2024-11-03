@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getProductById } from "../modules/api";
-import Skleton from "../Components/Skleton";
+import Skeleton from "../Components/Skleton"; // Corrected spelling
 import { SlBasket } from "react-icons/sl";
 import "../assets/sass/main.scss";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -28,7 +28,7 @@ const ProductDetail: React.FC = () => {
     error,
   } = useQuery<Product, Error>(
     ["product", productId],
-    () => getProductById(productId!),
+    () => getProductById(productId as string),
     { enabled: !!productId }
   );
 
@@ -44,7 +44,7 @@ const ProductDetail: React.FC = () => {
     return (
       <div className="product-container">
         <div className="product-image">
-          <Skleton />
+          <Skeleton />
         </div>
       </div>
     );
@@ -66,9 +66,23 @@ const ProductDetail: React.FC = () => {
       </div>
       <div className="product-details">
         <h1>{product.title}</h1>
-        <p className="category">Kategoriya: {product.category}</p>
+        <p className="category">Category: {product.category}</p>
         <h3>Description: {product.description}</h3>
-        <p className="price">Price: {product.price}$</p>
+        
+        <p className="price">
+          {product.discount > 0 ? (
+            <>
+              <span className="original-price" style={{ textDecoration: 'line-through', color: 'gray', marginRight: '10px' }}>
+                Price:{product.price.toFixed(2)}$
+              </span>
+              <span className="discounted-price">
+                Price:{discountedPrice.toFixed(2)}$
+              </span>
+            </>
+          ) : (
+            <span>Price: {product.price.toFixed(2)}$</span>
+          )}
+        </p>
 
         <div className="action-container">
           <button className="buy-button" onClick={toggleBasket}>
